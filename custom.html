@@ -1,185 +1,178 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="cleartype" content="on">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="cleartype" content="on" />
   <title>Amedia Parallax</title>
-  <link rel="stylesheet" href="https://use.typekit.net/xka5zpt.css">
+  <link rel="stylesheet" href="https://use.typekit.net/xka5zpt.css" />
+
   <style>
     html, body {
-      margin: 0; padding: 0;
-      width: 100%; height: 100%;
-      background: #f9dc0a;
+      background-image: url('examples/assets/_PNL0690-Rediger-lite-annonse.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #f9dc0a;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
       font-family: "Open Sans", sans-serif;
       font-weight: 800;
     }
+
     #banner {
-      width: 100vw; height: 100vh;
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: center;
-      cursor: pointer; overflow: hidden;
-      padding: 20px; box-sizing: border-box;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      overflow: hidden;
+      box-sizing: border-box;
+      padding: 20px;
     }
+
+    .container {
+  width: 100%;
+  max-width: 595px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.mid-content-container {
+  width: 100%;
+  max-width: 595px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+
+
     .top-content {
-      display: flex; gap: 30px; margin-bottom: 70px;
+      display: flex;
+      gap: 30px;
+      margin-bottom: 70px;
     }
+
     #top-logo, #top-image {
-      width: 242px; max-width: 100%;
-      height: auto; display: block;
+      width: 242px;
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
+
     .mid-content-wrapper {
-      width: 100%; max-width: 100%;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
       background: #594a25;
-      display: flex; align-items: center; justify-content: center;
-      padding: 20px; margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+      margin-bottom: 20px;
+      box-sizing: border-box;
     }
+
     .mid-content {
-      max-width: 521px; width: 100%;
+      width: 100%;
       text-align: left;
     }
+
     #text1, #text2 {
-      font-size: 94px; font-weight: bold;
-      margin: 0; padding: 0;
-      line-height: 1; letter-spacing: 1px;
-      color: #f9dc0a; transform: translateX(-5px);
+      font-size: 95px;
+      font-weight: bold;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+      letter-spacing: 1px;
+      color: #f9dc0a;
       will-change: transform;
     }
+
     .rotating-word {
       transition: opacity 0.5s ease;
       display: inline-block;
     }
-    .rotating-word.hide { opacity: 0; }
+
+    .rotating-word.hide {
+      opacity: 0;
+    }
+
     #changingWord {
       font-family: "open-sans-condensed", sans-serif;
     }
+
     .bottom-content {
-      margin-top: 50px; font-size: 20px;
+      margin-top: 50px;
+      font-size: 20px;
     }
+
     .bottom-content span {
-      display: block; margin: 0; padding: 0;
-      max-width: 512px; width: 100%;
-      font-size: 25.2px; text-align: left;
-      letter-spacing: 2px; color: #594a25;
+      display: block;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      font-size: 25.2px;
+      text-align: left;
+      letter-spacing: 2px;
+      color: white;
     }
+
     .bottom-content img {
-      max-width: 80px; height: auto;
-      display: block; margin: 10px auto 0;
+      max-width: 80px;
+      height: auto;
+      display: block;
+      margin: 10px 0 0;
       padding-top: 100px;
     }
 
-    @media (max-width: 768px) {
-      .mid-content-wrapper {
-        justify-content: center;
-        padding: 0 30px;
-      }
-      .mid-content {
-        max-width: none; width: auto;
+    @media (max-width: 600px) {
+      .container {
+        width: 100%;
       }
       #text1, #text2 {
-        font-size: 63px;
-        transform: none;
-        letter-spacing: 0.5px;
-        text-align: left;
-      }
-      .top-content {
-        flex-direction: row;
-        align-items: center;
-        transform: scale(1.2);
-        margin-top: 40px;
-        gap: 20px;
-      }
-      #top-logo, #top-image {
-        width: 140px;
+        font-size: 48px;
       }
       .bottom-content span {
-        font-size: 20px;
-        margin-bottom: 40px;
-        letter-spacing: normal;
-        text-align: center;
-      }
-      .bottom-content img {
-        padding-top: 60px;
-      }
-    }
-
-    @media (max-width: 400px) {
-      #text1, #text2 {
-        font-size: 42px;
-        letter-spacing: 0.3px;
-        line-height: 1.1;
-      }
-      .top-content {
-        flex-direction: row;
-        gap: 10px;
-        transform: scale(1.2);
-      }
-      #top-logo, #top-image {
-        width: 120px;
-      }
-      .bottom-content span {
-        font-size: 14px;
-        padding: 0 10px;
-        text-align: center;
-      }
-      .bottom-content img {
-        padding-top: 40px;
-        max-width: 60px;
-      }
-    }
-
-    @media (max-width: 768px) and (orientation: landscape) {
-      #text1, #text2 {
-        font-size: 36px;
-        line-height: 1;
-        letter-spacing: 0.2px;
-      }
-      .top-content {
-        flex-direction: row;
-        gap: 10px;
-        transform: scale(1);
-      }
-      .mid-content-wrapper {
-        padding: 10px 20px;
-        height: auto;
-      }
-      .bottom-content {
-        margin-top: 20px;
-      }
-      .bottom-content span {
-        font-size: 14px;
-        text-align: center;
-      }
-      .bottom-content img {
-        padding-top: 40px;
-        max-width: 60px;
+        font-size: 18px;
       }
     }
   </style>
 </head>
+
 <body>
   <div id="banner" onclick="window.open('https://www.bondelaget.no', '_blank')">
-    <div class="top-content">
-      <img id="top-image" src="https://raw.githubusercontent.com/Bompilez/Norges-bondelag/refs/heads/main/examples/assets/_PNL0690-Rediger-lite-annonse.jpg" alt="Bilde">
-      <img id="top-logo" src="examples/assets/Mer_enn_mat_Logo_Brun.svg" alt="Logo">
-    </div>
-    <div class="mid-content-wrapper">
-      <div class="mid-content">
-        <div class="fit-text" id="text1">LANDBRUK</div>
-        <div class="fit-text" id="text2">ER <span id="changingWord" class="rotating-word">KULTUR</span></div>
+    <div class="container">
+      <div class="top-content">
+        <img id="top-logo" src="examples/assets/Mer_enn_mat_Logo_Brun.svg" alt="Logo">
+      </div>
+
+      <div class="mid-content-wrapper">
+        <div class="mid-content-container">
+          <div class="mid-content">
+            <div id="text1">LANDBRUK</div>
+            <div id="text2">ER <span id="changingWord" class="rotating-word">KULTUR</span></div>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="bottom-content">
+        <span>TAKK FOR AT DU STØTTER BONDEN!</span>
+        <img id="bottom-logo" src="examples/assets/NB_logo_RGB_sentrert_farge2.svg" alt="Bondelaget logo">
       </div>
     </div>
-    <div class="bottom-content">
-      <span>TAKK FOR AT DU STØTTER BONDEN!</span>
-      <img id="bottom-logo" src="examples/assets/NB_logo_RGB_sentrert_farge2.svg" alt="Bondelaget logo">
-    </div>
   </div>
+
   <script>
     const words = ["KULTUR", "FREMTIDA", "BEREDSKAP", "INNOVASJON"];
     let currentIndex = 0;
     const rotatingSpan = document.getElementById("changingWord");
+
     rotatingSpan.textContent = words[currentIndex];
+
     setInterval(() => {
       rotatingSpan.classList.add("hide");
       setTimeout(() => {
