@@ -10,17 +10,23 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
 
   <style>
-    html, body, #banner {
+    html, body {
       width: 100vw;
       height: 100vh;
       margin: 0;
       padding: 0;
-      background-color: #ec0086;
+      background-color: #f9dc0a;
       font-family: 'Lato', sans-serif;
       font-weight: 900;
     }
 
     #banner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Vertikalt senter */
+      align-items: center;     /* Horisontalt senter */
       cursor: pointer;
       overflow: hidden;
     }
@@ -29,22 +35,129 @@
       text-decoration: none;
     }
 
+    .top-content {
+      margin-bottom: 20px;
+    }
 
+    .top-content {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 70px;
+    }
 
+    #top-logo {
+      width: 242px;
+      height: auto;
+      display: block;
+    }
+
+    #top-image {
+      width: 242px;
+    }
+
+    .mid-content-wrapper {
+      width: 100%;
+      background-color: #594a25;
+      display: flex;
+      align-items: center;
+      justify-content: center; 
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .mid-content {
+      width: 514px;
+      display: inline-block;
+      color: #f9dc0a;
+    }
+
+    .fit-text {
+      margin: 0;
+      white-space: nowrap;   /* Hindrer at teksten brytes til ny linje */
+      display: block;
+    }
+
+    .bottom-content {
+      margin-top: 50px;
+      font-size: 20px;
+    }
+
+    .bottom-content img {
+      max-width: 80px;
+      height: auto;
+      display: block;
+      padding-top: 100px;
+      margin: 10px auto 0;
+    }
   </style>
 </head>
 
 <body>
   <div id="banner" onclick="window.open('https://www.bondelaget.no', '_blank')">
-    <div class="copy">
-      <div class="copy1 animated">1 381 000<span>Digitale lesere</span></div>
-      <div class="copy2 animated2">60 prosent<span>Av alle voksne i dekningsområdet</span></div>
-      <div class="button">Les mer</div>
+
+    <div class="top-content">
+      <img id="top-image" src="examples/assets/_PNL0690-Rediger-lite-annonse.jpg">
+      <img id="top-logo" src="examples/assets/Mer_enn_mat_Logo_Brun.svg" alt="Logo">
     </div>
 
-    <div class="logo">
-      <img src="examples/assets/logo.svg" alt="Logo">
+    <div class="mid-content-wrapper">
+      <div class="mid-content">
+        <div class="fit-text" id="text1">LANDBRUK</div>
+        <div class="fit-text" id="text2">ER <span id="changingWord">KULTUR</span></div>
+      </div>
     </div>
+
+    <div class="bottom-content">
+      <span>TAKK FOR AT DU STØTTER BONDEN!</span>
+      <img id="bottom-logo" src="examples/assets/NB_logo_RGB_sentrert_farge2.svg" alt="Logo">
+    </div>
+
   </div>
+
+  <script>
+    const wordList = ["KULTUR", "FREMTIDA", "BEREDSKAP", "INNOVASJON"];
+    let i = 0;
+  
+    function fitFontToWidth(el, containerWidth, fontFamily = "Lato", fontWeight = 900) {
+      const canvas = document.createElement("canvas");
+      const context = canvas.getContext("2d");
+      let fontSize = 200;
+      const text = el.innerText;
+  
+      while (fontSize > 10) {
+        context.font = `${fontWeight} ${fontSize}px ${fontFamily}`;
+        const textWidth = context.measureText(text).width;
+        if (textWidth <= containerWidth) break;
+        fontSize--;
+      }
+  
+      el.style.fontSize = fontSize + "px";
+    }
+  
+    function applyFit() {
+      const containerWidth = document.querySelector('.mid-content').offsetWidth - 20;
+      fitFontToWidth(document.getElementById("text1"), containerWidth);
+      fitFontToWidth(document.getElementById("text2"), containerWidth);
+    }
+  
+    function startWordAnimation() {
+      const wordSpan = document.getElementById("changingWord");
+  
+      setInterval(() => {
+        i = (i + 1) % wordList.length;
+        wordSpan.textContent = wordList[i];
+        applyFit(); // Re-tilpass font etter ordbytte
+      }, 2000);
+    }
+  
+    window.addEventListener("load", () => {
+      applyFit();
+      startWordAnimation();
+    });
+  
+    window.addEventListener("resize", applyFit);
+  </script>
+  
+  
 </body>
 </html>
