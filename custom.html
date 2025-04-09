@@ -24,16 +24,17 @@
     }
 
     #banner {
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      overflow: hidden;
-      box-sizing: border-box;
-      padding: 20px;
-    }
+  min-height: 100vh; /* Ikke hard "låst" høyde, men minimum */
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* kan også bruke 'space-between' om du vil fordele */
+  overflow: visible;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
 
     .container {
   width: 100%;
@@ -139,6 +140,23 @@
         font-size: 18px;
       }
     }
+
+    @media (max-height: 500px) {
+  #text1, #text2 {
+    font-size: 48px;
+  }
+
+  .top-content {
+    transform: scale(0.9);
+    margin-bottom: 30px;
+  }
+
+  .bottom-content img {
+    padding-top: 40px;
+    max-width: 60px;
+  }
+}
+
   </style>
 </head>
 
