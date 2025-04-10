@@ -2,193 +2,171 @@
 <html lang="no">
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="cleartype" content="on" />
   <title>Amedia Parallax</title>
   <link rel="stylesheet" href="https://use.typekit.net/xka5zpt.css" />
-
   <style>
-  html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(examples/assets/1920x1080_TEST-2.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #f9dc0a;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 800;
-  box-sizing: border-box;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(examples/assets/1920x1080_TEST-2.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #f9dc0a;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 800;
+      box-sizing: border-box;
+    }
 
-#banner {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+    #banner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
 
-.container {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
+    #scale-wrapper {
+      transform-origin: top left;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.yellow-bg {
-  width: 100%;
-  background-color: #f9dc0a;
-  padding: 20px 0;
-  box-sizing: border-box;
-}
+    .container {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
 
-.top-content {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 40px;
-}
+    .wrapper-fullwidth {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+    }
 
-#top-logo {
-  width: 242px;
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+    .yellow-bg,
+    .top-bg,
+    .bottom-bg {
+      padding: 20px 0;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
 
-.mid-content {
-  width: 100%;
-  text-align: left;
-}
+    .yellow-bg {
+      background-color: #f9dc0a;
+    }
 
-#text1, #text2 {
-  font-size: 95px;
-  font-weight: bold;
-  margin: 0;
-  line-height: 1;
-  letter-spacing: 1px;
-  color: #594a25;
-  will-change: transform;
-}
+    .top-bg,
+    .bottom-bg {
+      background-color: transparent;
+    }
 
-#changingWord {
-  font-family: "open-sans-condensed", sans-serif;
-}
+    .top-content,
+    .bottom-content {
+      display: flex;
+      justify-content: flex-start; /* Align logos to the left */
+      width: 100%;
+      box-sizing: border-box;
+    }
 
-.rotating-word {
-  transition: opacity 0.5s ease;
-  display: inline-block;
-}
+    #top-logo {
+      width: 242px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
 
-.rotating-word.hide {
-  opacity: 0;
-}
+    .mid-content {
+      width: 100%;
+      text-align: left;
+    }
 
-.bottom-text {
-  display: block;
-  margin: 0;
-  padding-top: 40px;
-  font-size: 26.9px;
-  letter-spacing: 2px;
-  text-align: left;
-  color: #594a25;
-}
+    #text1, #text2 {
+      font-size: 95px;
+      font-weight: bold;
+      margin: 0;
+      line-height: 1;
+      letter-spacing: 1px;
+      color: #594a25;
+      will-change: transform;
+    }
 
-.bottom-content {
-  margin-top: 30px;
-}
+    #changingWord {
+      font-family: "open-sans-condensed", sans-serif;
+    }
 
-.bottom-content img {
-  max-width: 80px;
-  height: auto;
-  display: block;
-  padding-top: 50px;
-}
+    .rotating-word {
+      transition: opacity 0.5s ease;
+      display: inline-block;
+    }
 
-@media (max-width: 600px) {
-  #text1, #text2 {
-    font-size: 48px;
-    line-height: 1.1;
-  }
+    .rotating-word.hide {
+      opacity: 0;
+    }
 
-  .bottom-text {
-    font-size: 18px;
-    padding-top: 30px;
-  }
+    .bottom-text {
+      display: block;
+      margin: 0;
+      padding-top: 40px;
+      font-size: 26.9px;
+      letter-spacing: 2px;
+      text-align: left;
+      color: #594a25;
+    }
 
-  .bottom-content img {
-    max-width: 70px;
-    padding-top: 40px;
-  }
-
-  .top-content {
-    margin-bottom: 30px;
-  }
-}
-
-@media screen and (max-width: 812px) and (orientation: landscape) {
-  .container {
-    transform: scale(0.5);
-    transform-origin: top left;
-  }
-
-  .bottom-text {
-    padding-top: 10px;
-  }
-
-  .top-content {
-    margin-bottom: 0px;
-  }
-
-  .yellow-bg {
-    padding: 15px;
-    max-height: 150px;
-    box-sizing: border-box;
-    overflow: hidden;
-    height: auto;
-  }
-}
-
-
-
-
-
-
-
-
+    .bottom-content img {
+      max-width: 80px;
+      height: auto;
+      display: block;
+      padding-top: 50px;
+    }
   </style>
 </head>
 
 <body>
   <div id="banner" onclick="window.open('https://www.bondelaget.no', '_blank')">
+    <div id="scale-wrapper">
 
-    <div class="container">
-      <div class="top-content">
-        <img id="top-logo" src="examples/assets/Meir enn mat_Logo_Gul.svg" alt="Logo">
-      </div>
-    </div>
-  
-    <div class="yellow-bg">
-      <div class="container">
-        <div class="mid-content">
-          <div id="text1">LANDBRUK</div>
-          <div id="text2">ER <span id="changingWord" class="rotating-word">KULTUR</span></div>
-          <span class="bottom-text">TAKK FOR AT DU STØTTER BONDEN!</span>
+      <div class="wrapper-fullwidth">
+        <div class="top-bg">
+          <div class="container">
+            <div class="top-content">
+              <img id="top-logo" src="examples/assets/Meir enn mat_Logo_Gul.svg" alt="Logo">
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  
-    <div class="container">
-      <div class="bottom-content">
-        <img id="bottom-logo" src="examples/assets/NB_logo_RGB_sentrert_hvit.svg" alt="Bondelaget logo">
+
+      <div class="wrapper-fullwidth">
+        <div class="yellow-bg" id="yellow-fill">
+          <div class="container">
+            <div class="mid-content">
+              <div id="text1">LANDBRUK</div>
+              <div id="text2">ER <span id="changingWord" class="rotating-word">KULTUR</span></div>
+              <span class="bottom-text">TAKK FOR AT DU STØTTER BONDEN!</span>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div class="wrapper-fullwidth">
+        <div class="bottom-bg">
+          <div class="container">
+            <div class="bottom-content">
+              <img id="bottom-logo" src="examples/assets/NB_logo_RGB_sentrert_hvit.svg" alt="Bondelaget logo">
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-  
   </div>
-  
 
   <script>
     const words = ["KULTUR", "FREMTIDA", "BEREDSKAP", "INNOVASJON"];
@@ -205,6 +183,28 @@
         rotatingSpan.classList.remove("hide");
       }, 500);
     }, 3000);
+
+    function scaleToFit() {
+      const wrapper = document.getElementById('scale-wrapper');
+      const yellow = document.getElementById('yellow-fill');
+      const topBg = document.querySelector('.top-bg');
+      const bottomBg = document.querySelector('.bottom-bg');
+
+      wrapper.style.transform = 'scale(1)';
+      yellow.style.width = '100%';
+      topBg.style.width = '100%';
+      bottomBg.style.width = '100%';
+
+      const contentHeight = wrapper.offsetHeight;
+      const scale = Math.min(1, window.innerHeight / contentHeight);
+      wrapper.style.transform = `scale(${scale})`;
+      yellow.style.width = `${100 / scale}vw`;
+      topBg.style.width = `${100 / scale}vw`;
+      bottomBg.style.width = `${100 / scale}vw`;
+    }
+
+    window.addEventListener('load', scaleToFit);
+    window.addEventListener('resize', scaleToFit);
   </script>
 </body>
 </html>
