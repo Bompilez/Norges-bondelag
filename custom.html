@@ -167,49 +167,36 @@
   </div>
 
   <script>
-    const words = ["KULTUR", "FREMTIDA", "BEREDSKAP", "INNOVASJON"];
-    let currentIndex = 0;
-    const rotatingSpan = document.getElementById("changingWord");
+function scaleToFit() {
+  const wrapper = document.getElementById('scale-wrapper');
+  const yellow = document.getElementById('yellow-fill');
+  const topBg = document.querySelector('.top-bg');
+  const bottomBg = document.querySelector('.bottom-bg');
 
-    rotatingSpan.textContent = words[currentIndex];
+  wrapper.style.transform = 'scale(1)';
+  yellow.style.width = '100%';
+  topBg.style.width = '100%';
+  bottomBg.style.width = '100%';
 
-    setInterval(() => {
-      rotatingSpan.classList.add("hide");
-      setTimeout(() => {
-        currentIndex = (currentIndex + 1) % words.length;
-        rotatingSpan.textContent = words[currentIndex];
-        rotatingSpan.classList.remove("hide");
-      }, 500);
-    }, 3000);
+  const contentHeight = wrapper.offsetHeight;
+  const scaleHeight = Math.min(1, window.innerHeight / contentHeight);
 
-    function scaleToFit() {
-      const wrapper = document.getElementById('scale-wrapper');
-      const yellow = document.getElementById('yellow-fill');
-      const topBg = document.querySelector('.top-bg');
-      const bottomBg = document.querySelector('.bottom-bg');
+  let finalScale = scaleHeight;
 
-      wrapper.style.transform = 'scale(1)';
-      yellow.style.width = '100%';
-      topBg.style.width = '100%';
-      bottomBg.style.width = '100%';
+  // Ekstra sjekk: mobil stående format (bredde < 480px og høyde > bredde)
+  if (window.innerWidth <= 562 && window.innerHeight > window.innerWidth) {
+    finalScale = scaleHeight * 0.65; // skaler ned ekstra 75% i stående mobil
+  }
 
-      const contentHeight = wrapper.offsetHeight;
-      const scaleHeight = Math.min(1, window.innerHeight / contentHeight);
-      wrapper.style.transform = `scale(${scaleHeight})`;
-      yellow.style.width = `${100 / scaleHeight}vw`;
-      topBg.style.width = `${100 / scaleHeight}vw`;
-      bottomBg.style.width = `${100 / scaleHeight}vw`;
+  wrapper.style.transform = `scale(${finalScale})`;
+  yellow.style.width = `${100 / finalScale}vw`;
+  topBg.style.width = `${100 / finalScale}vw`;
+  bottomBg.style.width = `${100 / finalScale}vw`;
+}
 
-      // Resize the content if the width exceeds the viewport
-      const scaleWidth = Math.min(1, window.innerWidth / wrapper.offsetWidth);
-      wrapper.style.transform = `scale(${Math.min(scaleHeight, scaleWidth)})`;
-      yellow.style.width = `${100 / Math.min(scaleHeight, scaleWidth)}vw`;
-      topBg.style.width = `${100 / Math.min(scaleHeight, scaleWidth)}vw`;
-      bottomBg.style.width = `${100 / Math.min(scaleHeight, scaleWidth)}vw`;
-    }
+window.addEventListener('load', scaleToFit);
+window.addEventListener('resize', scaleToFit);
 
-    window.addEventListener('load', scaleToFit);
-    window.addEventListener('resize', scaleToFit);
   </script>
 </body>
 </html>
