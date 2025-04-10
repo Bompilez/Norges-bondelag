@@ -181,11 +181,17 @@
       bottomBg.style.width = '100%';
 
       const contentHeight = wrapper.offsetHeight;
-      const scaleHeight = Math.min(1, window.innerHeight / contentHeight);
-      let finalScale = scaleHeight;
+      const contentWidth = wrapper.offsetWidth;
 
-      if (window.innerWidth <= 562 && window.innerHeight > window.innerWidth) {
-        finalScale = scaleHeight * 0.65;
+      const scaleHeight = window.innerHeight / contentHeight;
+      const scaleWidth = window.innerWidth / contentWidth;
+
+      let finalScale = Math.min(1, scaleHeight);
+
+      const isMobileSafari = /iP(ad|hone|od).+Version\/.*Safari/i.test(navigator.userAgent);
+
+      if (isMobileSafari && window.innerWidth <= 562 && window.innerHeight > window.innerWidth) {
+        finalScale = Math.min(scaleWidth, scaleHeight) * 0.9;
       }
 
       wrapper.style.transform = `scale(${finalScale})`;
