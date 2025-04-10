@@ -174,28 +174,35 @@ function scaleToFit() {
   const bottomBg = document.querySelector('.bottom-bg');
 
   wrapper.style.transform = 'scale(1)';
+  wrapper.style.marginTop = '0'; // Resett først
   yellow.style.width = '100%';
   topBg.style.width = '100%';
   bottomBg.style.width = '100%';
 
   const contentHeight = wrapper.offsetHeight;
   const scaleHeight = Math.min(1, window.innerHeight / contentHeight);
-
   let finalScale = scaleHeight;
 
-  // Ekstra sjekk: mobil stående format (bredde < 480px og høyde > bredde)
+  // Kun ekstra nedskalering i stående mobil
   if (window.innerWidth <= 562 && window.innerHeight > window.innerWidth) {
-    finalScale = scaleHeight * 0.65; // skaler ned ekstra 75% i stående mobil
+    finalScale = scaleHeight * 0.65; // nedskalering mobil
   }
 
   wrapper.style.transform = `scale(${finalScale})`;
   yellow.style.width = `${100 / finalScale}vw`;
   topBg.style.width = `${100 / finalScale}vw`;
   bottomBg.style.width = `${100 / finalScale}vw`;
+
+  // Legg til vertikal sentrering ved å bruke margin-top
+  const scaledHeight = wrapper.offsetHeight * finalScale;
+  const verticalMargin = (window.innerHeight - scaledHeight) / 2;
+
+  wrapper.style.marginTop = verticalMargin > 0 ? `${verticalMargin}px` : '0';
 }
 
 window.addEventListener('load', scaleToFit);
 window.addEventListener('resize', scaleToFit);
+
 
   </script>
 </body>
