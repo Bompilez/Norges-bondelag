@@ -4,11 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Amedia Parallax</title>
+  <link rel="preconnect" href="https://use.typekit.net">
   <link rel="stylesheet" href="https://use.typekit.net/xka5zpt.css" />
   <style>
-
-    @import url("https://use.typekit.net/xka5zpt.css");
-
     html, body {
       -webkit-text-size-adjust: 100%;
       margin: 0;
@@ -20,8 +18,9 @@
       background-position: center;
       background-repeat: no-repeat;
       background-color: #f9dc0a;
-      font-family: "Open Sans", sans-serif;
-      font-weight: 800;
+      font-family: "open-sans", sans-serif;
+      font-weight: 700;
+      font-style: normal;
       box-sizing: border-box;
       overflow: hidden;
     }
@@ -101,22 +100,14 @@
 
     #changingWord {
       font-family: "open-sans-condensed", sans-serif;
+      font-weight: 300;
+      font-style: normal;
     }
 
     .rotating-word {
       transition: opacity 0.5s ease;
       display: inline-block;
     }
-
-    .rotating-word {
-    transition: opacity 0.5s ease;
-    display: inline-block;
-  }
-
-    .rotating-word.hide {
-    opacity: 0;
-  }
-
 
     .rotating-word.hide {
       opacity: 0;
@@ -138,8 +129,6 @@
       display: block;
       padding-top: 50px;
     }
-
-
   </style>
 </head>
 
@@ -177,66 +166,57 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
   <script>
-function scaleToFit() {
-  const wrapper = document.getElementById('scale-wrapper');
-  const yellow = document.getElementById('yellow-fill');
-  const topBg = document.querySelector('.top-bg');
-  const bottomBg = document.querySelector('.bottom-bg');
+    function scaleToFit() {
+      const wrapper = document.getElementById('scale-wrapper');
+      const yellow = document.getElementById('yellow-fill');
+      const topBg = document.querySelector('.top-bg');
+      const bottomBg = document.querySelector('.bottom-bg');
 
-  wrapper.style.transform = 'scale(1)';
-  wrapper.style.marginTop = '0'; // Resett først
-  yellow.style.width = '100%';
-  topBg.style.width = '100%';
-  bottomBg.style.width = '100%';
+      wrapper.style.transform = 'scale(1)';
+      wrapper.style.marginTop = '0';
+      yellow.style.width = '100%';
+      topBg.style.width = '100%';
+      bottomBg.style.width = '100%';
 
-  const contentHeight = wrapper.offsetHeight;
-  const scaleHeight = Math.min(1, window.innerHeight / contentHeight);
-  let finalScale = scaleHeight;
+      const contentHeight = wrapper.offsetHeight;
+      const scaleHeight = Math.min(1, window.innerHeight / contentHeight);
+      let finalScale = scaleHeight;
 
-  // Kun ekstra nedskalering i stående mobil
-  if (window.innerWidth <= 562 && window.innerHeight > window.innerWidth) {
-    finalScale = scaleHeight * 0.65; // nedskalering mobil
-  }
+      if (window.innerWidth <= 562 && window.innerHeight > window.innerWidth) {
+        finalScale = scaleHeight * 0.65;
+      }
 
-  wrapper.style.transform = `scale(${finalScale})`;
-  yellow.style.width = `${100 / finalScale}vw`;
-  topBg.style.width = `${100 / finalScale}vw`;
-  bottomBg.style.width = `${100 / finalScale}vw`;
+      wrapper.style.transform = `scale(${finalScale})`;
+      yellow.style.width = `${100 / finalScale}vw`;
+      topBg.style.width = `${100 / finalScale}vw`;
+      bottomBg.style.width = `${100 / finalScale}vw`;
 
-  // Legg til vertikal sentrering ved å bruke margin-top
-  const scaledHeight = wrapper.offsetHeight * finalScale;
-  const verticalMargin = (window.innerHeight - scaledHeight) / 2;
+      const scaledHeight = wrapper.offsetHeight * finalScale;
+      const verticalMargin = (window.innerHeight - scaledHeight) / 2;
+      wrapper.style.marginTop = verticalMargin > 0 ? `${verticalMargin}px` : '0';
+    }
 
-  wrapper.style.marginTop = verticalMargin > 0 ? `${verticalMargin}px` : '0';
-}
+    window.addEventListener('load', scaleToFit);
+    window.addEventListener('resize', scaleToFit);
 
-window.addEventListener('load', scaleToFit);
-window.addEventListener('resize', scaleToFit);
+    const words = ["KULTUR", "FREMTIDA", "BEREDSKAP", "INNOVASJON"];
+    let currentIndex = 0;
+    const rotatingSpan = document.getElementById("changingWord");
 
-// Denne delen legger du under eksisterende JavaScript-kode (etter scaleToFit funksjonen din):
-
-const words = ["KULTUR", "FREMTIDA", "BEREDSKAP", "INNOVASJON"];
-let currentIndex = 0;
-const rotatingSpan = document.getElementById("changingWord");
-
-rotatingSpan.textContent = words[currentIndex];
-
-setInterval(() => {
-  rotatingSpan.classList.add("hide");
-  setTimeout(() => {
-    currentIndex = (currentIndex + 1) % words.length;
     rotatingSpan.textContent = words[currentIndex];
-    rotatingSpan.classList.remove("hide");
-  }, 500);
-}, 3000);
 
-
-
+    setInterval(() => {
+      rotatingSpan.classList.add("hide");
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % words.length;
+        rotatingSpan.textContent = words[currentIndex];
+        rotatingSpan.classList.remove("hide");
+      }, 500);
+    }, 3000);
   </script>
 </body>
 </html>
