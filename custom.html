@@ -104,6 +104,16 @@
       display: inline-block;
     }
 
+    .rotating-word {
+  transition: opacity 0.5s ease;
+  display: inline-block;
+}
+
+.rotating-word.hide {
+  opacity: 0;
+}
+
+
     .rotating-word.hide {
       opacity: 0;
     }
@@ -203,6 +213,24 @@ function scaleToFit() {
 
 window.addEventListener('load', scaleToFit);
 window.addEventListener('resize', scaleToFit);
+
+// Denne delen legger du under eksisterende JavaScript-kode (etter scaleToFit funksjonen din):
+
+const words = ["KULTUR", "FREMTIDA", "BEREDSKAP", "INNOVASJON"];
+let currentIndex = 0;
+const rotatingSpan = document.getElementById("changingWord");
+
+rotatingSpan.textContent = words[currentIndex];
+
+setInterval(() => {
+  rotatingSpan.classList.add("hide");
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % words.length;
+    rotatingSpan.textContent = words[currentIndex];
+    rotatingSpan.classList.remove("hide");
+  }, 500);
+}, 3000);
+
 
 
   </script>
