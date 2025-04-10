@@ -9,202 +9,133 @@
   <link rel="stylesheet" href="https://use.typekit.net/xka5zpt.css" />
 
   <style>
-    html, body {
-      background-image: url(examples/assets/1920x1080_TEST-2.jpg);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: #f9dc0a;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      font-family: "Open Sans", sans-serif;
-      font-weight: 800;
-     
-    }
-
-    #banner {
-  min-height: 100vh; 
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: visible;
-  padding: 20px;
+  html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(examples/assets/1920x1080_TEST-2.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f9dc0a;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
   box-sizing: border-box;
-  
 }
 
+#banner {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-.container,
-.mid-content-container {
+/* Generell container for å sentrere innhold */
+.container {
   width: 100%;
-  max-width: 595px;
+  max-width: 600px;
+  margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
 }
 
+/* Fullbredde gul bakgrunn rundt midtinnhold */
+.yellow-bg {
+  width: 100%;
+  background-color: #f9dc0a;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
 
+/* Toppinnhold med logo */
+.top-content {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 40px;
+}
 
+#top-logo {
+  width: 242px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
-    .top-content {
-      display: flex;
-      margin-bottom: 40px;
-    }
+/* Midtinnhold */
+.mid-content {
+  width: 100%;
+  text-align: left;
+}
 
-    #top-logo, #top-image {
-      width: 242px;
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+#text1, #text2 {
+  font-size: 95px;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: #594a25;
+  will-change: transform;
+}
 
-    .mid-content-wrapper {
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-      background: #594a25;
-      display: flex;
-      justify-content: center;
-      padding: 20px 0;
-      margin-bottom: 20px;
-      box-sizing: border-box;
-    }
+#changingWord {
+  font-family: "open-sans-condensed", sans-serif;
+}
 
-    .mid-content {
-      width: 100%;
-      text-align: left;
-    }
+.rotating-word {
+  transition: opacity 0.5s ease;
+  display: inline-block;
+}
 
-    #text1, #text2 {
-      font-size: 95px;
-      font-weight: bold;
-      margin: 0;
-      padding: 0;
-      line-height: 1;
-      letter-spacing: 1px;
-      color: #f9dc0a;
-      will-change: transform;
-    }
+.rotating-word.hide {
+  opacity: 0;
+}
 
-    .rotating-word {
-      transition: opacity 0.5s ease;
-      display: inline-block;
-    }
+/* Takketekst */
+.bottom-text {
+  display: block;
+  margin: 0;
+  padding-top: 40px;
+  font-size: 26.9px;
+  letter-spacing: 2px;
+  text-align: left;
+  color: #594a25;
+}
 
-    .rotating-word.hide {
-      opacity: 0;
-    }
+/* Bunnlogo */
+.bottom-content {
+  margin-top: 30px;
+}
 
-    #changingWord {
-      font-family: "open-sans-condensed", sans-serif;
-    }
+.bottom-content img {
+  max-width: 80px;
+  height: auto;
+  display: block;
+  padding-top: 50px;
+}
 
-    .bottom-content {
-      margin-top: 30px;
-      font-size: 20px;
-    }
-
-    .bottom-content span {
-      display: block;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      font-size: 25.2px;
-      text-align: left;
-      letter-spacing: 2px;
-      color: white;
-    }
-
-    .bottom-content img {
-      max-width: 80px;
-      height: auto;
-      display: block;
-      margin: 10px 0 0;
-      padding-top: 50px;
-    }
-
-    @media (max-width: 600px) {
-  .container,
-  .mid-content-container {
-    width: 100%;
-    max-width: 521px;
-    padding: 0 16px;
-    box-sizing: border-box;
-  }
-
+/* Mobilrespons */
+@media (max-width: 600px) {
   #text1, #text2 {
     font-size: 48px;
     line-height: 1.1;
-    transform: none;
   }
 
-  .top-content {
-    gap: 20px;
-    margin-bottom: 40px;
-    transform: scale(0.95);
-  }
-
-  .bottom-content span {
+  .bottom-text {
     font-size: 18px;
+    padding-top: 30px;
   }
 
   .bottom-content img {
-    padding-top: 60px;
     max-width: 70px;
-  }
-}
-
-@media screen and (max-width: 812px) and (orientation: landscape) {
-  #banner {
-    height: 100vh;
-    overflow: hidden;
-    padding: 10px;
-  }
-
-  .container,
-  .mid-content-container {
-    max-width: 521px;
-    padding: 0 10px;
-  }
-
-  .mid-content {
-    transform: scale(0.75);
-    transform-origin: top left;
+    padding-top: 40px;
   }
 
   .top-content {
-    gap: 10px;
-    margin-bottom: 20px;
-    transform: scale(0.95);
-  }
-
-  .mid-content-wrapper {
-    padding: 10px 0;
-    margin-bottom: 10px;
-    justify-content: flex-start;
-  }
-
-  #text1, #text2 {
-    font-size: 44px;
-    line-height: 1.1;
-  }
-
-  .bottom-content {
-    margin-top: 20px;
-  }
-
-  .bottom-content span {
-    font-size: 14px;
-    text-align: center;
-  }
-
-  .bottom-content img {
-    padding-top: 30px;
-    max-width: 50px;
+    margin-bottom: 30px;
   }
 }
+
 
 
 
@@ -215,27 +146,31 @@
 
 <body>
   <div id="banner" onclick="window.open('https://www.bondelaget.no', '_blank')">
+
     <div class="container">
       <div class="top-content">
-        <img id="top-logo" src="examples/assets/Mer_enn_mat_Logo_Brun.svg" alt="Logo">
+        <img id="top-logo" src="examples/assets/Meir enn mat_Logo_Gul.svg" alt="Logo">
       </div>
-
-      <div class="mid-content-wrapper">
-        <div class="mid-content-container">
-          <div class="mid-content">
-            <div id="text1">LANDBRUK</div>
-            <div id="text2">ER <span id="changingWord" class="rotating-word">KULTUR</span></div>
-          </div>
+    </div>
+  
+    <div class="yellow-bg">
+      <div class="container">
+        <div class="mid-content">
+          <div id="text1">LANDBRUK</div>
+          <div id="text2">ER <span id="changingWord" class="rotating-word">KULTUR</span></div>
+          <span class="bottom-text">TAKK FOR AT DU STØTTER BONDEN!</span>
         </div>
       </div>
-      
-
+    </div>
+  
+    <div class="container">
       <div class="bottom-content">
-        <span>TAKK FOR AT DU STØTTER BONDEN!</span>
         <img id="bottom-logo" src="examples/assets/NB_logo_RGB_sentrert_hvit.svg" alt="Bondelaget logo">
       </div>
     </div>
+  
   </div>
+  
 
   <script>
     const words = ["KULTUR", "FREMTIDA", "BEREDSKAP", "INNOVASJON"];
