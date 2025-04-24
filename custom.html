@@ -8,11 +8,11 @@
   <link rel="stylesheet" href="https://use.typekit.net/xka5zpt.css" />
   <style>
     html, body {
-      -webkit-text-size-adjust: 100%;
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
+      overflow: hidden;
       background-image: url(examples/assets/1920x1080_TEST-4.webp);
       background-size: cover;
       background-position: center;
@@ -20,13 +20,11 @@
       background-color: #f9dc0a;
       font-family: "open-sans", sans-serif;
       font-weight: 800;
-      font-style: normal;
-      cursor: pointer;
       box-sizing: border-box;
-      overflow: hidden;
     }
 
     #banner {
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -34,11 +32,21 @@
       min-height: 100vh;
     }
 
+    #clickLayer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      display: block;
+      text-indent: -9999px;
+    }
+
     #scale-wrapper {
       transform-origin: top left;
       width: 100%;
     }
-
 
     .container {
       width: 100%;
@@ -47,7 +55,6 @@
       padding: 0 20px;
       box-sizing: border-box;
     }
-
 
     .wrapper-fullwidth {
       width: 100vw;
@@ -63,17 +70,10 @@
       box-sizing: border-box;
     }
 
-    .yellow-bg {
-      background-color: #f9dc0a;
-    }
+    .yellow-bg { background-color: #f9dc0a; }
+    .top-bg, .bottom-bg { background-color: transparent; }
 
-    .top-bg,
-    .bottom-bg {
-      background-color: transparent;
-    }
-
-    .top-content,
-    .bottom-content {
+    .top-content, .bottom-content {
       display: flex;
       justify-content: flex-start;
       width: 100%;
@@ -109,7 +109,6 @@
     #changingWord {
       font-family: "open-sans-condensed", sans-serif;
       font-weight: 300;
-      font-style: normal;
     }
 
     .rotating-word {
@@ -117,37 +116,29 @@
       display: inline-block;
     }
 
-    .rotating-word.hide {
-      opacity: 0;
-    }
+    .rotating-word.hide { opacity: 0; }
 
     .bottom-text {
       margin: 0;
       font-size: 26.9px;
       letter-spacing: 2px;
-      text-align: left;
       color: #594a25;
     }
 
-    .bottom-content {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .bottom-content img { 
+    .bottom-content img {
       width: 200px;
-      max-width: none;
       margin-right: 22px;
       height: auto;
       display: block;
       padding-bottom: 50px;
     }
-
-
   </style>
 </head>
 <body>
-  <div id="banner" onclick="window.open('%%CLICK_URL_ESC%%https://www.bondelaget.no/merennmat/', '_blank')">
+  <div id="banner">
+    <!-- Klikkbart sporingslag -->
+    <a id="clickLayer" href="%%CLICK_URL_ESC%%https://www.bondelaget.no/merennmat/" target="_blank">Klikk</a>
+
     <div id="scale-wrapper">
       <div class="wrapper-fullwidth">
         <div class="top-bg">
