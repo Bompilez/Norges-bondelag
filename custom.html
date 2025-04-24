@@ -133,19 +133,26 @@
       display: block;
       padding-bottom: 50px;
     }
+
+    /* Sikrer at a-tag dekker hele området */
+    a#clickLayer {
+      text-decoration: none;
+      text-indent: -9999px;
+    }
   </style>
 </head>
 <body>
   <div id="banner">
-    <!-- Klikkbart sporingslag -->
-    <div
+    <!-- Oppdatert: Bruker a-tag med klikksporing -->
+    <a
       id="clickLayer"
-      onclick="window.open('%%CLICK_URL_ESC%%https://www.bondelaget.no/merennmat/', '_blank')"
+      href="%%CLICK_URL_ESC%%https://www.bondelaget.no/merennmat/"
+      target="_blank"
       role="button"
       aria-label="Klikk for å besøke kampanjen"
     >
       Klikk
-    </div>
+    </a>
 
     <div id="scale-wrapper">
       <div class="wrapper-fullwidth">
