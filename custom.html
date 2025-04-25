@@ -182,13 +182,9 @@
   </div>
 
   <script>
-    function getClickURL() {
-      const params = new URLSearchParams(window.location.search);
-      return params.get("click") || "https://www.bondelaget.no/merennmat/";
-    }
-
     document.getElementById("clickLayer").onclick = function () {
-      window.open(getClickURL(), "_blank");
+      const target = window.clickTag || "https://www.bondelaget.no/merennmat/";
+      window.open(target, "_blank");
     };
 
     function scaleToFit() {
