@@ -181,10 +181,12 @@
     </div>
   </div>
 
-  <script>
+   <script>
     function getClickURL() {
       const params = new URLSearchParams(window.location.search);
-      return params.get("click") || "https://www.bondelaget.no/merennmat/";
+      return params.get("click")
+        ? params.get("click") + "https://www.bondelaget.no/merennmat/"
+        : "https://www.bondelaget.no/merennmat/";
     }
 
     document.getElementById("clickLayer").onclick = function () {
