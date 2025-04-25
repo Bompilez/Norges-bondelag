@@ -2,12 +2,18 @@
   var d = document;
   var s = d.currentScript || d.getElementsByTagName('script')[d.getElementsByTagName('script').length - 1];
 
+  // Hent parametere fra script-taggen (f.eks. clickUrlParam)
+  var params = new URLSearchParams(s.src.split('?')[1] || '');
+  var clickURL = params.get('clickUrlParam') || '';
+
+  // Lag iframe og legg til click-parameteren i src
   var i = d.createElement('iframe');
-  i.src = 'https://bompilez.github.io/Norges-bondelag/custom.html'; // ← legg inn riktig URL her
+  i.src = 'https://bompilez.github.io/Norges-bondelag/custom.html?click=' + encodeURIComponent(clickURL);
   i.style.border = 'none';
   i.style.width = '100vw';
   i.style.height = '100vh';
   i.setAttribute('frameborder', '0');
   i.setAttribute('scrolling', 'no');
+
   s.parentNode.replaceChild(i, s);
 })();
