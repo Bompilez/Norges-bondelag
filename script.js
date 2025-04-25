@@ -3,7 +3,7 @@
   var i=d.createElement('iframe');
   i.src='https://bompilez.github.io/Norges-bondelag/custom.html';
   i.style.border='none';
-  i.style.width='100vh';
+  i.style.width='100vw';
   i.style.height='100vh';
   i.setAttribute('frameborder','0');
   i.setAttribute('scrolling','no');
