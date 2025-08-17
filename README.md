@@ -4,7 +4,7 @@ Dette prosjektet er en digital annonse laget for bruk i Amedia sine aviser. Anno
 
 ## 🎯 Formål
 
-Annonsen ble laget i jobbsammenheng som digital designer og inngår i min portefølje for frontendutvikling. Den kombinerer visuelt design med koding og viser evnen til å produsere modulært og distribuerbart annonsemateriell.
+Annonsen ble laget i jobbsammenheng som digital designer. Den kombinerer visuelt design med koding og viser evnen til å produsere modulært og distribuerbart annonsemateriell.
 
 ---
 
@@ -23,9 +23,9 @@ Annonsen ble laget i jobbsammenheng som digital designer og inngår i min portef
 | Fil/Mappe        | Beskrivelse                                      |
 |------------------|--------------------------------------------------|
 | `custom.html`    | Selve annonsen som vises i iframe                |
-| `script.js`      | Script som laster inn `custom.html` i en iframe |
-| `examples/`      | Eksempelbilder og test-asset                     |
-| `package.json`   | Brukt for evt. utviklingsverktøy (ikke påkrevd) |
+| `script.js`      | Script som laster inn `custom.html` i en iframe  |
+| `examples/`      | Innholdet i annonsen, inkludert bilder og grafik |
+| `package.json`   | Brukt for evt. utviklingsverktøy                 |
 
 ---
 
@@ -35,3 +35,14 @@ Du kan bruke denne annonsen ved å legge inn følgende script-tagg på en nettsi
 
 ```html
 <script src="https://bompilez.github.io/Norges-bondelag/script.js?clickUrlParam=%%CLICK_URL_ESC%%"></script>
+
+
+## 🚀 For testvisning uten script, bruk denne lenken:
+
+```html
+https://bompilez.github.io/Norges-bondelag/custom.html?click=https://www.bondelaget.no/merennmat/
+
+## 📄 Lisens
+
+🔒 Gjenbruk, modifikasjon eller kommersiell bruk er ikke tillatt uten skriftlig tillatelse fra oppdragsgiver..
+
