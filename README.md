@@ -50,6 +50,11 @@ https://bompilez.github.io/Norges-bondelag/custom.html?click=https://www.bondela
 ```
 ---
 
-📄 Lisens
+## 📄 Lisens
 
-🔒 Gjenbruk, modifikasjon eller kommersiell bruk er ikke tillatt uten skriftlig tillatelse fra oppdragsgiver.
+Alt innhold i dette prosjektet er utviklet av Eggedosis AS på vegne av oppdragsgiver.
+
+🔒 Kildekode, design, tekst, bilder og øvrig materiell er beskyttet etter opphavsrettsloven og eies av **Eggedosis AS**.
+
+Ingen deler av dette prosjektet kan gjenbrukes, distribueres, kopieres eller modifiseres uten skriftlig tillatelse fra Eggedosis AS.
+
