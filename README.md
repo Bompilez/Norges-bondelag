@@ -6,7 +6,10 @@ Dette prosjektet er en digital annonse utviklet for bruk i Amedia sine nettavise
 
 ## 🎯 Formål
 
-Annonsen ble laget i jobbsammenheng som digital designer. Den kombinerer visuelt design med koding og demonstrerer evne til å produsere modulært og distribuerbart annonsemateriell til redaksjonelle miljøer.
+Prosjektets hensikt var å lage en digital annonse som formidler at den norske bonden er mye mer enn bare matproduksjon – de er en viktig del av vårt kulturgrunnlag, nasjonale beredskap og en drivkraft for innovasjon i hele landet. 
+
+Annonsen ble utviklet i jobbsammenheng som digital designer, og kombinerer visuelt design med koding.
+
 
 ---
 
