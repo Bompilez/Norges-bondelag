@@ -40,10 +40,15 @@ Du kan bruke denne annonsen ved å legge inn følgende script-tagg på en nettsi
 
 ```html
 <script src="https://bompilez.github.io/Norges-bondelag/script.js?clickUrlParam=%%CLICK_URL_ESC%%"></script>
+```
 
-🌐 For testvisning uten script
+---
 
+## 🌐 For testvisning uten script
+```html
 https://bompilez.github.io/Norges-bondelag/custom.html?click=https://www.bondelaget.no/merennmat/
+```
+---
 
 📄 Lisens
 
