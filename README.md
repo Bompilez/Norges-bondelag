@@ -6,7 +6,7 @@ Dette prosjektet er en digital annonse utviklet for bruk i Amedia sine nettavise
 
 ## Formål
 
-Prosjektets hensikt var å lage en digital annonse som formidler at den norske bonden er mye mer enn bare matproduksjon – de er en viktig del av vårt kulturgrunnlag, nasjonale beredskap og en drivkraft for innovasjon i hele landet. 
+Prosjektets hensikt var å lage en digital annonse som formidler at den norske bonden er mye mer enn bare matproduksjon, de er en viktig del av vårt kulturgrunnlag, nasjonale beredskap og en drivkraft for innovasjon i hele landet. 
 
 Annonsen ble utviklet i jobbsammenheng som digital designer, og kombinerer visuelt design med koding.
 
