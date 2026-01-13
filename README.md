@@ -1,10 +1,10 @@
-# 🇳🇴 Norges Bondelag – Amedia Parallax Annonse
+# Norges Bondelag – Amedia Parallax Annonse
 
 Dette prosjektet er en digital annonse utviklet for bruk i Amedia sine nettaviser. Annonsematerialet benytter en **fullskjerms iframe-løsning** og er optimalisert for ytelse og lav filstørrelse i henhold til mediehusets krav.
 
 ---
 
-## 🎯 Formål
+## Formål
 
 Prosjektets hensikt var å lage en digital annonse som formidler at den norske bonden er mye mer enn bare matproduksjon – de er en viktig del av vårt kulturgrunnlag, nasjonale beredskap og en drivkraft for innovasjon i hele landet. 
 
@@ -13,7 +13,7 @@ Annonsen ble utviklet i jobbsammenheng som digital designer, og kombinerer visue
 
 ---
 
-## 🧱 Teknologi og innhold
+## Teknologi og innhold
 
 - **HTML / CSS** – Struktur og design
 - **JavaScript** – Dynamisk innlasting via `<script>`
@@ -23,7 +23,7 @@ Annonsen ble utviklet i jobbsammenheng som digital designer, og kombinerer visue
 
 ---
 
-## 📦 Filoversikt
+## Filoversikt
 
 | Fil/Mappe        | Beskrivelse                                      |
 |------------------|--------------------------------------------------|
@@ -34,7 +34,7 @@ Annonsen ble utviklet i jobbsammenheng som digital designer, og kombinerer visue
 
 ---
 
-## 🚀 Hvordan bruke annonsen
+## Hvordan bruke annonsen
 
 Du kan bruke denne annonsen ved å legge inn følgende script-tagg på en nettside:
 
@@ -44,13 +44,13 @@ Du kan bruke denne annonsen ved å legge inn følgende script-tagg på en nettsi
 
 ---
 
-## 🌐 For testvisning uten script
+## For testvisning uten script
 ```html
 https://bompilez.github.io/Norges-bondelag/custom.html?click=https://www.bondelaget.no/merennmat/
 ```
 ---
 
-## 📄 Lisens
+## Lisens
 
 Alt innhold i dette prosjektet er utviklet av Eggedosis AS på vegne av oppdragsgiver.
 
